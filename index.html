@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DRM</title>
+    <style>
+    body {
+      padding-top: 50px;
+      color: #868688;
+      background-color: #FAFCFF;
+    }
+
+    nav {
+      background-color: #e7e7e7
+    }
+
+    nav a {
+      color: #868688;
+    }
+
+    nav a:hover {
+      color: #606062;
+      text-decoration: none;
+    }
+
+    .navbar-toggle .icon-bar {
+      background-color: #868688;
+    }
+
+    .starter-template {
+      padding: 40px 15px;
+      text-align: center;
+    }
+
+    .video-js {
+      margin: 0 auto;
+    }
+  </style>
+
+</head>
+<body>
+
+  <video id=example-video width=640 height=360 class="video-js vjs-default-skin" controls preload="metadata"></video>
+
+  <link href="https://unpkg.com/video.js/dist/video-js.css" rel="stylesheet" />
+
+  <script src="https://vjs.zencdn.net/7.8.3/video.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dashjs/3.1.1/dash.all.debug.js"></script>
+  <script src="	https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-dash/2.11.0/videojs-dash.js"></script>
+
+
+  <script>
+        var player = videojs('example-video');
+        player.ready(function() {
+          player.src({
+              //src: 'my aws s3 bucket link, example',
+              src: "https://jiostreamingdash.akamaized.net/content/entry/wvdata/32/36/181df7a0fc5c11ebb07c23bcc58fc910_voot_mobile_premium.mpd", 
+              type: "application/dash+xml",
+
+              //To playback WV content, you must provide the URL to a Widevine license server proxy.
+               keySystemOptions: [
+              {
+                  name: 'com.widevine.alpha',
+                  options: {
+                      serverURL: 'https://prod.media.jio.com/wvproxy?videoid=2000352672&vootid=937861&isVoot=true&voottoken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIwMzQ2YjVhYmE5MDE0NTMwOTYyZGFmODVlZDRkZmYzMSIsImVtYWlsIjoicmFzaG1pc3Jpbml2YXM3QGdtYWlsLmNvbSIsImRldmljZUlkIjoiMDM0NmI1YWJhOTAxNDUzMDk2MmRhZjg1ZWQ0ZGZmMzEiLCJrVXNlcklkIjoiMzcyOTY4MCIsImlhdCI6MTYyOTUwNDg0NywiZXhwIjoxNjMwMzY4ODQ3LCJpc3MiOiJ2b290In0.M89gACAS99qrOdVcpWjaHyNSOARYmiUuuLtQLp1EagA'
+
+                  }
+              },
+              {
+                  name: 'com.microsoft.playready',
+                  options: {
+                      serverURL: 'https://prod.media.jio.com/wvproxy?videoid=2000352672&vootid=937861&isVoot=true&voottoken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIwMzQ2YjVhYmE5MDE0NTMwOTYyZGFmODVlZDRkZmYzMSIsImVtYWlsIjoicmFzaG1pc3Jpbml2YXM3QGdtYWlsLmNvbSIsImRldmljZUlkIjoiMDM0NmI1YWJhOTAxNDUzMDk2MmRhZjg1ZWQ0ZGZmMzEiLCJrVXNlcklkIjoiMzcyOTY4MCIsImlhdCI6MTYyOTUwNDg0NywiZXhwIjoxNjMwMzY4ODQ3LCJpc3MiOiJ2b290In0.M89gACAS99qrOdVcpWjaHyNSOARYmiUuuLtQLp1EagA'
+
+                  }
+              }
+          ]
+          });
+
+  player.play();
+    });
+
+    </script>
+</body>
+
+
+</html>
