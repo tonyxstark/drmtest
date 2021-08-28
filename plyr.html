@@ -138,7 +138,7 @@ function videovisible() {
 }
 const video = document.getElementById("videoContainer");
     document.addEventListener("DOMContentLoaded", function() {
-        const source = "${url}";
+        const source = "https://jiostreamingdash.akamaized.net/content/entry/wvdata/32/36/181df7a0fc5c11ebb07c23bcc58fc910_voot_mobile_premium.mpd";
         const dash = dashjs.MediaPlayer().create();
         var defaultOptions = {
             "autoplay": false,
@@ -166,10 +166,10 @@ const video = document.getElementById("videoContainer");
         });
         dash.setProtectionData({
             "com.widevine.alpha": {
-                "serverURL": "https://udrmv3.kaltura.com/cenc/widevine/license?custom_data=${custom_data}%3d%3d&signature=${signature}%3d"
+                "serverURL": "https://prod.media.jio.com/wvproxy?videoid=2000352672&vootid=937861&isVoot=true&voottoken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIwMzQ2YjVhYmE5MDE0NTMwOTYyZGFmODVlZDRkZmYzMSIsImVtYWlsIjoicmFzaG1pc3Jpbml2YXM3QGdtYWlsLmNvbSIsImRldmljZUlkIjoiMDM0NmI1YWJhOTAxNDUzMDk2MmRhZjg1ZWQ0ZGZmMzEiLCJrVXNlcklkIjoiMzcyOTY4MCIsImlhdCI6MTYyOTUwNDg0NywiZXhwIjoxNjMwMzY4ODQ3LCJpc3MiOiJ2b290In0.M89gACAS99qrOdVcpWjaHyNSOARYmiUuuLtQLp1EagA"
             },
             "com.microsoft.playready": {
-                "serverURL": "https://udrmv3.kaltura.com/cenc/playready/license?custom_data=${custom_data}%3d%3d&signature=${signature}%3d"
+                "serverURL": "https://prod.media.jio.com/wvproxy?videoid=2000352672&vootid=937861&isVoot=true&voottoken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIwMzQ2YjVhYmE5MDE0NTMwOTYyZGFmODVlZDRkZmYzMSIsImVtYWlsIjoicmFzaG1pc3Jpbml2YXM3QGdtYWlsLmNvbSIsImRldmljZUlkIjoiMDM0NmI1YWJhOTAxNDUzMDk2MmRhZjg1ZWQ0ZGZmMzEiLCJrVXNlcklkIjoiMzcyOTY4MCIsImlhdCI6MTYyOTUwNDg0NywiZXhwIjoxNjMwMzY4ODQ3LCJpc3MiOiJ2b290In0.M89gACAS99qrOdVcpWjaHyNSOARYmiUuuLtQLp1EagA"
             }
         });
         dash.on("streamInitialized", function() {
